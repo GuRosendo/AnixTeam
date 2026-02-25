@@ -1,0 +1,82 @@
+@media(max-width: 768px){
+    .main-content .presentation-photo{
+        height: 100svh; 
+    }
+
+    .main-content .presentation-photo .presentation-phrase{
+        width: 100%;
+        padding: 0 20px;
+        align-items: flex-start;
+    }
+
+    .main-content .presentation-photo .presentation-phrase h1{
+        width: 100%;
+        font-size: 38px;
+        text-align: left;
+    }
+
+    .main-content .presentation-photo .presentation-phrase p{
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .main-content .presentation-photo .presentation-phrase button{
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px){
+    footer .menu{
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    footer .menu h1{
+        align-self: center;
+    }
+
+    footer .menu .logo{
+        width: 100%;
+    }
+
+    footer .menu .logo img{
+        margin-top: 30px;
+    }
+
+    footer .menu .menu-content{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    footer .menu .contact{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    footer .cnpj{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    footer .cnpj hr{
+        width: 80%;
+    }
+
+    footer .cnpj .class-informations{
+        flex-direction: column;
+        padding: 20px 10px 20px 10px;
+    }
+
+    footer .cnpj .class-informations h1:first-child{
+        padding-right: 0px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,22 +1,126 @@
 :root{
-    --black: #000;
-    --white: #FFF;
-    --dark-purple: #200624;
-    --light-purple: #860B7D;
-    --pink: #B32067;
-    --orange: #E05F40; 
+    --black: #000000;
+    --white: #ffffff;
+
+    --foreground: #0b0710;
+    --background-deep: #07040c;
+    --background-soft: #12081a;
+
+    --purple-900: #1a0424;
+    --purple-800: #200624;
+    --purple-700: #2a0633;
+    --purple-600: #3b0a4f;
+    --purple-500: #550b6e;
+    --purple-400: #6f0b8a;
+    --purple-300: #850c7e;
+    --purple-200: #9b2aa3;
+    --purple-100: #b45bb8;
+
+    --pink-900: #4a0030;
+    --pink-800: #6a0045;
+    --pink-700: #8b005e;
+    --pink-600: #b32067;
+    --pink-500: #d12d7a;
+    --pink-400: #e04c92;
+    --pink-300: #ee73ab;
+    --pink-200: #f4a0c6;
+    --pink-100: #f9cfe3;
+
+    --orange-900: #4a1a0d;
+    --orange-800: #6a2a15;
+    --orange-700: #8c3a1f;
+    --orange-600: #e05f40;
+    --orange-500: #ff744f;
+    --orange-400: #ff8a66;
+    --orange-300: #ffa68c;
+    --orange-200: #ffc3b0;
+    --orange-100: #ffe1d6;
+
+    --gray-900: #0e0e11;
+    --gray-800: #18181c;
+    --gray-700: #222228;
+    --gray-600: #2d2d35;
+    --gray-500: #3a3a44;
+
+    --transparent: transparent;
+    --black-90: #000000e6;
+    --black-80: #000000cc;
+    --black-70: #000000b3;
+    --black-60: #00000099;
+    --black-50: #00000080;
+
+    --glass-dark: rgba(10, 5, 20, 0.65);
+    --glass-purple: rgba(133, 12, 126, 0.35);
+    --glass-pink: rgba(179, 32, 103, 0.35);
+    --glass-orange: rgba(224, 95, 64, 0.3);
+
+    --gradient-main: linear-gradient(
+        135deg,
+        #000000 0%,
+        #2a0633 25%,
+        #850c7e 50%,
+        #b32067 70%,
+        #e05f40 100%
+    );
+
+    --gradient-purple: linear-gradient(
+        to right,
+        #200624,
+        #550b6e,
+        #850c7e
+    );
+
+    --gradient-warm: linear-gradient(
+        to right,
+        #850c7e,
+        #b32067,
+        #e05f40
+    );
+
+    --gradient-overlay-bottom: linear-gradient(
+        to top,
+        #000000 0%,
+        rgba(0,0,0,0.85) 40%,
+        rgba(0,0,0,0.4) 70%,
+        transparent 100%
+    );
+
+    --glow-purple: 0 0 25px rgba(133, 12, 126, 0.6);
+    --glow-pink: 0 0 25px rgba(179, 32, 103, 0.6);
+    --glow-orange: 0 0 25px rgba(224, 95, 64, 0.6);
+
+    --shadow-soft: 0 8px 25px rgba(0,0,0,0.35);
+    --shadow-heavy: 0 15px 40px rgba(0,0,0,0.6);
+
+    --whatsapp: #25D366;
+    --facebook: #4267b3;
+    --instagram: #FF2992;
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Fredoka", sans-serif;
+}
+
+::-webkit-scrollbar{
+    width: 5px; 
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--purple-500);
+}
+
+::-webkit-scrollbar-track{
+    background-color: var(--background-deep);
 }
 
 body{
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 180vh;
+    background-color: var(--foreground);
 }
 
 #menu{
@@ -31,15 +135,18 @@ body{
     height: 85px;
     padding: 50px;
     transition: height 0.4s ease, padding 0.4s ease, top 0.4s ease, width 0.4s ease, border-radius 0.4s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 999;
 }
 
 #menu.scrolled{   
     top: 20px;
-    width: 95%;
+    width: 80%;
     height: 55px;
     padding: 20px;
     border-radius: 25px;
+    background: var(--glass-dark);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-soft);
 }
 
 #menu ul{
@@ -58,10 +165,32 @@ body{
 
 #menu ul li a{
     display: flex;
-    color: var(--black);
+    color: var(--white);
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+#menu.scrolled ul li a{   
+    color: var(--white);
+}
+
+#menu ul li a:hover{
+    background: var(--purple-300);
+    box-shadow: var(--glow-purple);
+    border-radius: 5px 20px 5px 20px;
+}
+
+#menu.scrolled ul li a:hover{   
+    color: var(--white);
+}
+
+#menu ul li:first-child a:hover{
+   background-color: transparent;
+   border-radius: 0;
+   box-shadow: none;
 }
 
 #menu ul li a img{
@@ -69,12 +198,289 @@ body{
 }
 
 #menu ul li button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 150px;
-    height: 60%;
+    height: 80%;
     border-radius: 15px;
     border-style: none;
     cursor: pointer;
     font-weight: bold;
-    background-color: var(--black);
+    background: var(--purple-500);
     color: var(--white);
+    transition: 0.5s;
+}
+
+#menu ul li button:hover{
+    transform: scale(1.05);
+    box-shadow: var(--glow-purple);
+}
+
+#menu ul li button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+
+#menu.scrolled ul li button a{   
+    color: var(--white);
+}
+
+#menu ul li button a:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.main-content .presentation-photo{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-content .presentation-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(4px) brightness(0.65);
+}
+
+.main-content .presentation-photo .presentation-phrase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+}
+
+.main-content .presentation-photo .presentation-phrase h1{
+    width: 60%;
+    font-size: 64px;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.main-content .presentation-photo .presentation-phrase h1 span{
+    color: var(--purple-300);
+    text-shadow:
+        0 0 4px  color-mix(in srgb, var(--purple-300) 50%, transparent),
+        0 0 10px color-mix(in srgb, var(--purple-300) 30%, transparent);
+}
+
+.main-content .presentation-photo .presentation-phrase p{
+    width: 60%;
+    color: var(--white);
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.main-content .presentation-photo .presentation-phrase button{
+    width: 60%;
+    background-color: var(--purple-500);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main-content .presentation-photo .presentation-phrase button:hover{
+    transform: scale(1.05);
+    box-shadow: var(--glow-purple);
+}
+
+.main-content .presentation-photo .presentation-phrase button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+    padding: 20px 30px 20px 20px;
+}
+
+.main-content .presentation-photo .presentation-phrase button a i{
+    margin-left: 20px;
+}
+
+.main-content .class-descriptions{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--background-deep);
+    color: var(--white);
+    font-size: 16px;
+}
+
+footer .menu{
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 250px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer .menu h1{
+    align-self: flex-start;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+footer .menu .logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer .menu .logo img{
+    width: 150px;
+    margin: 10px 0px 10px 0px;
+}
+
+footer .menu .logo .social-medias{
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer .menu .logo .social-medias ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    list-style: none;
+}
+
+footer .menu .logo .social-medias ul li{
+    padding: 0px 10px 0px 10px;
+}
+
+footer .menu .logo .social-medias ul li i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+footer .menu .logo .social-medias ul li:hover i.fa-instagram{
+    border: none;
+    background-color: var(--instagram);
+}
+
+footer .menu .logo .social-medias ul li:hover i.fa-whatsapp{
+    border: none;
+    background-color: var(--whatsapp);
+}
+
+footer .menu .logo .social-medias ul li:hover i.fa-facebook-f{
+    border: none;
+    background-color: var(--facebook);
+}
+
+footer .menu nav{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer .menu ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    list-style: none;
+}
+
+footer .menu ul li{
+    padding: 8px 0px 8px 0px;
+}
+
+footer .menu ul li a{
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+footer .menu ul li a:hover{
+    color: var(--purple-500);
+}
+
+footer .menu .contact{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+footer .cnpj{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    flex-direction: column;
+}
+
+footer .cnpj hr{
+    width: 100%;
+    height: 0;
+    border: none;
+    border-top: 1px solid var(--glass-purple);
+    background: transparent;
+}
+
+footer .cnpj .class-informations{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+
+footer .cnpj .class-informations h1{
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+footer .cnpj .class-informations h1:first-child{
+    padding-right: 10px;
 }
