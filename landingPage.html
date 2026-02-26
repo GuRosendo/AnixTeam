@@ -35,10 +35,10 @@
     <nav id="menu">
         <ul>
             <li><a href=""><img id="logo" src="images/light-anix-full-logo-without-bg.png" alt="anix-logo"></a></li>
-            <li><a href="">LOCALIZAÇÃO</a></li>
+            <li><a href="">QUEM SOMOS</a></li>
             <li><a href="">NOSSAS AULAS</a></li>
             <li><a href="">PLANOS</a></li>
-            <li><a href="">QUEM SOMOS</a></li>
+            <li><a href="">LOCALIZAÇÃO</a></li>
             <li><button><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow">CONTATO</a></button></li>
         </ul>
     </nav>
@@ -46,26 +46,57 @@
     <nav id="menu-mobile" class="d-none">
         <ul>
             <li><a href=""><img src="images/dark-anix-full-logo-without-bg.png" alt="anix-logo"></a></li>
-            <li><a href="">LOCALIZAÇÃO</a></li>
+            <li><a href="">QUEM SOMOS</a></li>
             <li><a href="">NOSSAS AULAS</a></li>
             <li><a href="">PLANOS</a></li>
-            <li><a href="">QUEM SOMOS</a></li>
+            <li><a href="">LOCALIZAÇÃO</a></li>
             <li><button><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow">CONTATO</a></button></li>
         </ul>
     </nav>
 
     <div class="main-content">
-        <div class="presentation-photo">
+        <section class="presentation-photo">
             <img src="images/presentation/presentation.jpg" alt="anix-presentation">
             <div class="presentation-phrase">
                 <h1>A <span>MELHOR</span> ESCOLA DE DANÇA</h1>
                 <p>Escola de dança para todas as idades</p>
                 <button><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow">QUERO ME INSCREVER <i class="fa-solid fa-arrow-right"></i></a></button>
             </div>
-        </div>
+        </section>
 
         <section class="class-descriptions">
-            
+            <div class="left-content">
+                <div class="photo-overlay">
+                    <div class="carousel">
+                        <div class="carousel-slides">
+                            <div class="slide"><img src="images/carousel/carousel-1.jpg" alt="Imagem 1"></div>
+                            <div class="slide"><img src="images/carousel/carousel-1.jpg" alt="Imagem 1"></div>
+                            <div class="slide"><img src="images/carousel/carousel-1.jpg" alt="Imagem 1"></div>
+                            <div class="slide"><img src="images/carousel/carousel-1.jpg" alt="Imagem 1"></div>
+                        </div>
+
+                        <button class="prev" onclick="changeSlide(-1, true)"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="next" onclick="changeSlide(1, true)"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blur"></div>
+
+            <div class="right-content">
+                <div class="class-description">
+                    <h1>SOBRE O <span>ANIX DANCE STUDIO</span></h1>
+
+                    <p>O ANIX surgiu em 2022 com o objetivo de reunir pessoas que gostam da cultura K-pop e compartilham do mesmo interesse pela dança.</p>
+                    <p>No início, o grupo começou de forma independente, sem professor ou formação técnica. Era apenas um hobby entre amigos. Com o tempo, o projeto cresceu, ganhou visibilidade e passou a alcançar uma proporção maior do que o esperado.</p>
+                    <p>Com esse crescimento, surgiu a necessidade de estruturar aulas de K-pop para atender pessoas interessadas em aprender de forma organizada e com acompanhamento técnico.</p>
+                    <p>Hoje, o ANIX acumula diversas premiações e participações de destaque em festivais, competições e eventos culturais, consolidando sua presença no cenário da dança.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-classes">
+
         </section>
     </div>
 
@@ -87,10 +118,10 @@
                 <h1>MENU</h1>
 
                 <ul>
-                    <li><a href="">LOCALIZAÇÃO</a></li>
+                    <li><a href="">QUEM SOMOS</a></li>
                     <li><a href="">NOSSAS AULAS</a></li>
                     <li><a href="">PLANOS</a></li>
-                    <li><a href="">QUEM SOMOS</a></li>
+                    <li><a href="">LOCALIZAÇÃO</a></li>
                 </ul>
             </nav>
 
@@ -114,6 +145,49 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        let actualIndex = 0;
+        let autoSlideInterval;
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                changeSlide(1, false);
+            }, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function changeSlide(direction, userChanged){
+            if(userChanged){
+                stopAutoSlide();
+            }
+
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            
+            actualIndex += direction;
+            
+            if(actualIndex < 0){
+                actualIndex = totalSlides - 1;
+            }else if (actualIndex >= totalSlides){
+                actualIndex = 0;
+            }
+            
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const carouselSlides = document.querySelector('.carousel-slides');
+            const widthSlide = document.querySelector('.slide').offsetWidth;
+
+            carouselSlides.style.transform = `translateX(${-actualIndex * widthSlide}px)`;
+        }
+
+        startAutoSlide();
+    </script>
 </body>
 
 </html>
