@@ -1,3 +1,27 @@
+@media (max-width: 1024px){
+    .main-content .class-descriptions{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content .class-descriptions .left-content{
+        margin-right: 0;
+        margin-bottom: 40px;
+        width: 100%;
+    }
+
+    .main-content .class-descriptions .left-content .photo-overlay{
+        width: 100%;
+        height: 500px;
+    }
+
+    .blur{
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 @media(max-width: 768px){
     .main-content .presentation-photo{
         height: 100svh; 
@@ -11,21 +35,35 @@
 
     .main-content .presentation-photo .presentation-phrase h1{
         width: 100%;
-        font-size: 38px;
         text-align: left;
     }
 
     .main-content .presentation-photo .presentation-phrase p{
         width: 100%;
-        font-size: 20px;
     }
 
     .main-content .presentation-photo .presentation-phrase button{
         width: 100%;
     }
+
+    .main-content .class-descriptions{
+        padding: 50px 0;
+    }
 }
 
 @media(max-width: 600px){
+    .main-content .class-descriptions .left-content{
+        width: 100%;
+    }
+
+    .main-content .class-descriptions .left-content .photo-overlay{
+        aspect-ratio: 1 / 1;
+    }
+
+    .class-description h1{
+        text-align: center;
+    }
+    
     footer .menu{
         width: 100%;
         height: auto;
