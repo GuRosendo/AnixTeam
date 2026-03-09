@@ -49,6 +49,10 @@
     .main-content .class-descriptions{
         padding: 50px 0;
     }
+
+    .our-methods .informations .methods ul{
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width: 600px){

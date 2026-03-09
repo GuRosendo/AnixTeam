@@ -215,7 +215,11 @@ body{
     border-style: none;
     cursor: pointer;
     font-weight: bold;
-    background: var(--purple-500);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
     color: var(--white);
     transition: 0.5s;
 }
@@ -231,7 +235,7 @@ body{
     justify-content: center;
     width: 100%;
     height: 100%;
-    font-size: clamp(14px, 1.4vw, 16px);
+    font-size: var(--fs-sm);
 }
 
 #menu.scrolled ul li button a{   
@@ -304,7 +308,11 @@ body{
 
 .main-content .presentation-photo .presentation-phrase button{
     width: 60%;
-    background-color: var(--purple-500);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
     border: none;
     border-radius: 15px;
     cursor: pointer;
@@ -325,12 +333,16 @@ body{
     font-size: var(--fs-sm);
     text-decoration: none;
     color: var(--white);
-    font-weight: bold;
     padding: 20px 30px 20px 20px;
 }
 
 .main-content .presentation-photo .presentation-phrase button a i{
     margin-left: 20px;
+}
+
+.main-content .presentation-photo .presentation-phrase button span{
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .main-content .class-descriptions{
@@ -458,19 +470,260 @@ body{
     font-weight: 300;
 }
 
-.our-classes{
+.our-methods{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    min-height: 100vh;
     position: relative;
+    background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--purple-300) 6%, transparent) 0%,
+        color-mix(in srgb, var(--purple-300) 3%, transparent) 30%,
+        color-mix(in srgb, var(--purple-300) 1.5%, transparent) 55%,
+        var(--background-deep) 100%
+    );
+    padding-bottom: 40px;
+}
 
-    background:
-        linear-gradient(
-            to bottom,
-            color-mix(in srgb, var(--purple-300) 6%, transparent) 0%,
-            color-mix(in srgb, var(--purple-300) 3%, transparent) 30%,
-            color-mix(in srgb, var(--purple-300) 1.5%, transparent) 55%,
-            transparent 75%
-        );
+.our-methods::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1000px, 85%);
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--purple-400),
+        transparent
+    );
+    box-shadow:
+        0 0 10px var(--purple-400),
+        0 0 20px rgba(133,12,126,0.4);
+}
+
+.our-methods .content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 40px;
+}
+
+.our-methods .content h1{
+    font-size: var(--fs-xl);
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.our-methods .content p{
+    text-align: center;
+    font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--white);
+    font-weight: 300;
+}
+
+.our-methods .content .methods{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 45px;
+}
+
+.our-methods .content .methods ul{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.our-methods .content .methods ul li{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px;
+    border-radius: 12px;
+    color: var(--white);
+    font-size: var(--fs-md);
+    border: 1px solid var(--purple-500);
+    background: var(--foreground);
+    backdrop-filter: blur(6px);
+    transition: all 0.25s ease;
+}
+
+.our-methods .content .methods ul li:hover{
+    transform: translateY(-5px);
+    border-color: var(--purple-300);
+    box-shadow:
+        0 0 12px color-mix(in srgb, var(--purple-500) 60%, transparent),
+        0 0 30px color-mix(in srgb, var(--purple-500) 30%, transparent);
+}
+
+.our-methods .content .methods ul li i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    color: var(--white);
+    font-size: var(--fs-md);
+    flex-shrink: 0;
+    box-shadow:
+        0 0 12px rgba(179,32,103,0.6),
+        inset 0 2px 6px rgba(255,255,255,0.15);
+}
+
+.our-classes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.our-classes .content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 40px;
+}
+
+.our-classes .content h1{
+    font-size: var(--fs-xl);
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.our-classes .content p{
+    text-align: center;
+    font-size: var(--fs-md);
+    line-height: 1.6;
+    color: var(--white);
+    font-weight: 300;
+}
+
+.our-classes .content .squares{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0;
+    margin: 45px 45px;
+}
+
+.our-classes .content .squares .square{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 22px;
+    border-radius: 12px;
+    color: var(--white);
+    font-size: var(--fs-md);
+    border: 1px solid var(--purple-500);
+    background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--purple-300) 6%, transparent) 0%,
+        color-mix(in srgb, var(--purple-300) 3%, transparent) 30%,
+        color-mix(in srgb, var(--purple-300) 1.5%, transparent) 55%,
+        var(--background-deep) 100%
+    );
+    backdrop-filter: blur(6px);
+    transition: all 0.25s ease;
+}
+
+.our-classes .content .squares .square:hover{
+    transform: translateY(-5px);
+    border-color: var(--purple-300);
+    box-shadow:
+        0 0 12px color-mix(in srgb, var(--purple-500) 60%, transparent),
+        0 0 30px color-mix(in srgb, var(--purple-500) 30%, transparent);
+}
+
+.our-classes .content .squares .square .body ul{
+    margin-left: 20px;
+}
+
+.our-classes .content .squares .square .body ul li{
+    padding: 20px 10px 20px 10px;
+}
+
+.our-classes .content .squares .square .body ul li::marker{
+    color: var(--purple-300);
+    font-size: var(--fs-lg);
+}
+
+.our-classes .content .squares .square .footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.our-classes .content .squares .square .footer button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    border-style: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    color: var(--white);
+    transition: 0.5s;
+    padding: 15px 15px;
+}
+
+.our-classes .content .squares .square .footer button:hover{
+    transform: scale(1.05);
+    box-shadow: var(--glow-purple);
+}
+
+.our-classes .content .squares .square .footer button a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: var(--fs-sm);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.our-classes .content .squares .square .footer button a:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.our-classes .content .squares .square .footer button a span{
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.our-classes .content .squares .square .footer button a i{
+    margin-left: 20px;
 }
 
 footer{
