@@ -4,6 +4,7 @@
 
     --foreground: #0b0710;
     --background-deep: #07040c;
+    --background-medium-deep: #06030a;
     --background-soft: #12081a;
 
     --purple-900: #1a0424;
@@ -103,6 +104,20 @@
     --fs-md:  clamp(18px, 2vw, 22px);   
     --fs-sm:  clamp(15px, 1.5vw, 18px); 
     --fs-xs:  clamp(13px, 1.2vw, 15px);
+
+    --card-border: rgba(255,255,255,0.06);
+    --card-border-hover: var(--purple-400);
+
+    --card-gradient-top: rgba(133, 12, 126, 0.08);
+    --card-gradient-mid: rgba(133, 12, 126, 0.03);
+
+    --icon-gradient-start: rgba(179, 32, 103, 0.18);
+    --icon-gradient-end: rgba(133, 12, 126, 0.18);
+
+    --accent-main: var(--pink-400);
+    --accent-hover: var(--pink-300);
+
+    --card-shadow-hover: 0 10px 35px rgba(133, 12, 126, 0.35);
 }
 
 *{
@@ -205,16 +220,16 @@ body{
     width: 130px;
 }
 
-#menu ul li button{
+#menu ul li a.btn-contact{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 150px;
     height: 80%;
     border-radius: 15px;
-    border-style: none;
     cursor: pointer;
     font-weight: bold;
+    font-size: var(--fs-sm);
     background: linear-gradient(
         135deg,
         var(--pink-500),
@@ -224,27 +239,18 @@ body{
     transition: 0.5s;
 }
 
-#menu ul li button:hover{
+#menu ul li a.btn-contact:hover{
     transform: scale(1.05);
     box-shadow: var(--glow-purple);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
 }
 
-#menu ul li button a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-size: var(--fs-sm);
-}
-
-#menu.scrolled ul li button a{   
+#menu.scrolled ul li a.btn-contact{
     color: var(--white);
-}
-
-#menu ul li button a:hover{
-    background-color: transparent;
-    box-shadow: none;
 }
 
 .main-content{
@@ -256,18 +262,23 @@ body{
 }
 
 .main-content .presentation-photo{
-    display: flex;
-    justify-content: center;
+    position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-.main-content .presentation-photo img{
+.main-content .presentation-photo video{
+    position: absolute;
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center;
+
     filter: blur(4px) brightness(0.65);
 }
 
@@ -306,41 +317,35 @@ body{
     margin-bottom: 20px;
 }
 
-.main-content .presentation-photo .presentation-phrase button{
+.main-content .presentation-photo .presentation-phrase a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
+    padding: 20px 30px 20px 20px;
     background: linear-gradient(
         135deg,
         var(--pink-500),
         var(--purple-400)
     );
-    border: none;
-    border-radius: 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--fs-sm);
     cursor: pointer;
     transition: 0.5s;
 }
 
-.main-content .presentation-photo .presentation-phrase button:hover{
+.main-content .presentation-photo .presentation-phrase a:hover{
     transform: scale(1.05);
     box-shadow: var(--glow-purple);
 }
 
-.main-content .presentation-photo .presentation-phrase button a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-size: var(--fs-sm);
-    text-decoration: none;
-    color: var(--white);
-    padding: 20px 30px 20px 20px;
-}
-
-.main-content .presentation-photo .presentation-phrase button a i{
+.main-content .presentation-photo .presentation-phrase a i{
     margin-left: 20px;
 }
 
-.main-content .presentation-photo .presentation-phrase button span{
+.main-content .presentation-photo .presentation-phrase a span{
     font-weight: bold;
     margin-left: 5px;
 }
@@ -350,7 +355,7 @@ body{
     width: 90%;
     position: relative;
     padding: 80px 0; 
-    margin: 0 auto;
+    margin: 100px 100px;
 }
 
 .main-content .class-descriptions .blur{
@@ -371,7 +376,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-right: 30px;
 }
 
 .main-content .class-descriptions .left-content .photo-overlay{
@@ -388,13 +392,11 @@ body{
 }
 
 .main-content .class-descriptions .left-content .photo-overlay .carousel{
-    position: absolute; 
-    top: 30px;
-    left: 30px; 
     width: 100%; 
     height: 100%; 
     border-radius: 20px; 
     overflow: hidden;
+    transition: 0.5s;
 }
 
 .carousel button{
@@ -420,7 +422,7 @@ body{
 
 .main-content .class-descriptions .left-content .photo-overlay .carousel .carousel-slides{
     display: flex;
-    width: 100%;
+    width: 101%;
     height: 100%;
     transition: transform 0.5s ease;
 }
@@ -457,7 +459,14 @@ body{
 }
 
 .main-content .class-descriptions .right-content .class-description h1 span{
-    color: var(--purple-300);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-shadow:
         0 0 6px color-mix(in srgb, var(--purple-300) 50%, transparent),
         0 0 14px color-mix(in srgb, var(--purple-300) 30%, transparent);
@@ -483,7 +492,7 @@ body{
         color-mix(in srgb, var(--purple-300) 1.5%, transparent) 55%,
         var(--background-deep) 100%
     );
-    padding-bottom: 40px;
+    padding: 100px 0px 150px 0px;
 }
 
 .our-methods::after{
@@ -510,7 +519,6 @@ body{
     align-items: center;
     flex-direction: column;
     width: 90%;
-    margin-top: 40px;
 }
 
 .our-methods .content h1{
@@ -549,7 +557,7 @@ body{
     align-items: center;
     gap: 15px;
     padding: 22px;
-    border-radius: 12px;
+    border-radius: 18px;
     color: var(--white);
     font-size: var(--fs-md);
     border: 1px solid var(--purple-500);
@@ -588,29 +596,21 @@ body{
 
 .our-classes{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    padding-bottom: 40px;
-}
-
-.our-classes .content{
-    display: flex;
     align-items: center;
     flex-direction: column;
     width: 90%;
-    margin-top: 40px;
+    padding: 100px 0px 100px 0px;
+    position: relative;
 }
 
-.our-classes .content h1{
+.our-classes h1{
     font-size: var(--fs-xl);
     color: var(--white);
     text-align: center;
     margin-bottom: 45px;
 }
 
-.our-classes .content p{
+.our-classes p{
     text-align: center;
     font-size: var(--fs-md);
     line-height: 1.6;
@@ -618,24 +618,22 @@ body{
     font-weight: 300;
 }
 
-.our-classes .content .squares{
+.our-classes .squares{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 0;
-    margin: 45px 45px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin: 45px 0;
 }
 
-.our-classes .content .squares .square{
+.our-classes .squares .square{
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 22px;
-    border-radius: 12px;
+    gap: 18px;
+    padding: 32px;
+    border-radius: 18px;
     color: var(--white);
-    font-size: var(--fs-md);
-    border: 1px solid var(--purple-500);
+    border: 1px solid var(--card-border);
     background: linear-gradient(
         to bottom,
         color-mix(in srgb, var(--purple-300) 6%, transparent) 0%,
@@ -644,86 +642,181 @@ body{
         var(--background-deep) 100%
     );
     backdrop-filter: blur(6px);
-    transition: all 0.25s ease;
+    transition: all .25s ease;
 }
 
-.our-classes .content .squares .square:hover{
-    transform: translateY(-5px);
-    border-color: var(--purple-300);
-    box-shadow:
-        0 0 12px color-mix(in srgb, var(--purple-500) 60%, transparent),
-        0 0 30px color-mix(in srgb, var(--purple-500) 30%, transparent);
+.our-classes .squares .square:hover{
+    transform: translateY(-6px);
+    border-color: var(--card-border-hover);
+    box-shadow: var(--card-shadow-hover);
 }
 
-.our-classes .content .squares .square .body ul{
-    margin-left: 20px;
+.our-classes .squares .icon{
+    width: 100%;
 }
 
-.our-classes .content .squares .square .body ul li{
-    padding: 20px 10px 20px 10px;
+.our-classes .squares .icon i{
+    font-size: var(--fs-lg);
+    padding: 16px;
+    border-radius: 12px;
+    color: var(--white);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    margin-bottom: 35px;
 }
 
-.our-classes .content .squares .square .body ul li::marker{
-    color: var(--purple-300);
+.our-classes .squares .square .header{
+    width: 100%;
+}
+
+.our-classes .squares .square .header h1{
     font-size: var(--fs-lg);
 }
 
-.our-classes .content .squares .square .footer{
+.our-classes .squares .square .body{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: auto;
 }
 
-.our-classes .content .squares .square .footer button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.our-classes .squares .square .body ul{
+    padding: 0;
+}
+
+.our-classes .squares .square .body ul li{
+    list-style: none;
+    color: var(--white);
+    padding: 6px 0;
+    font-size: var(--fs-md);
+}
+
+.our-classes .squares .square .footer{
+    margin-top: auto;
     width: 100%;
-    border-radius: 15px;
-    border-style: none;
-    cursor: pointer;
+}
+
+.our-classes .squares .square .footer a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-md);
+    text-decoration: none;
+    transition: 0.5s;
     font-weight: bold;
     background: linear-gradient(
         135deg,
         var(--pink-500),
         var(--purple-400)
     );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow:
+        0 0 6px color-mix(in srgb, var(--purple-300) 50%, transparent),
+        0 0 14px color-mix(in srgb, var(--purple-300) 30%, transparent);
+}
+
+.our-classes .squares .square .footer a i{
+    font-size: var(--fs-md);
+}
+
+.our-classes .squares .square .footer a:hover{
+    gap: 14px;
+}
+
+.our-location{
+    width: 100%;
+    margin: auto;
+    padding: 100px 0px 100px 0px;
+    background-color: var(--background-medium-deep);
+}
+
+.our-location .content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.our-location .content .left-content{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.our-location .content .left-content .left-decoration{
+    width: 4px;
+    height: 60px;
+    background-color: var(--white);
+    border-radius: 4px;
+}
+
+.our-location .content .left-content h2{
+    font-size: var(--fs-xl);
+    margin-bottom: 10px;
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow:
+        0 0 6px color-mix(in srgb, var(--purple-300) 50%, transparent),
+        0 0 14px color-mix(in srgb, var(--purple-300) 30%, transparent);
+    margin-left: 20px;
+}
+
+.our-location .content .left-content h1{
+    font-size: 38px;
     color: var(--white);
-    transition: 0.5s;
-    padding: 15px 15px;
 }
 
-.our-classes .content .squares .square .footer button:hover{
-    transform: scale(1.05);
-    box-shadow: var(--glow-purple);
+.our-location .right-content{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 18px;
+    background-color: var(--foreground);
+    border: 1px solid rgba(255,255,255,0.06);
 }
 
-.our-classes .content .squares .square .footer button a{
+.our-location .right-content .icon{
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-size: var(--fs-sm);
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
     color: var(--white);
-    text-decoration: none;
-    font-weight: normal;
+    font-size: 20px;
 }
 
-.our-classes .content .squares .square .footer button a:hover{
-    background-color: transparent;
-    box-shadow: none;
+.our-location .right-content .location h1{
+    color: var(--white);
+    font-size: 18px;
 }
 
-.our-classes .content .squares .square .footer button a span{
-    font-weight: bold;
-    margin-left: 5px;
+.our-location .right-content .location p{
+    color: rgba(255,255,255,0.7);
 }
 
-.our-classes .content .squares .square .footer button a i{
-    margin-left: 20px;
+.our-location .right-content .footer{
+    margin-left: auto;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
 }
 
 footer{
@@ -875,6 +968,16 @@ footer .cnpj .class-informations h1{
     text-align: center;
     font-size: var(--fs-xs);
     font-weight: normal;
+}
+
+footer .cnpj .class-informations h1 a{
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+footer .cnpj .class-informations h1 a:hover{
+    color: var(--purple-500);
 }
 
 footer .cnpj .class-informations h1:first-child{
