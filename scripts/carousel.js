@@ -1,13 +1,24 @@
 let actualIndex = 0;
 let autoSlideInterval;
 
-function startAutoSlide() {
+function startAutoSlide(){
+    const next = document.querySelector("#next");
+    const prev = document.querySelector("#prev");
+
+    next.addEventListener("click", () => {
+        changeSlide(1, true);
+    });
+
+    prev.addEventListener("click", () => {
+        changeSlide(-1, true);
+    })
+
     autoSlideInterval = setInterval(() => {
         changeSlide(1, false);
     }, 5000);
 }
 
-function stopAutoSlide() {
+function stopAutoSlide(){
     clearInterval(autoSlideInterval);
 }
 

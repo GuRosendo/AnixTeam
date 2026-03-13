@@ -40,7 +40,7 @@
 <body>
     <nav id="menu">
         <ul>
-            <li><a href=""><img id="logo" src="images/light-anix-full-logo-without-bg.png" alt="anix-logo"></a></li>
+            <li><a href=""><img id="logo" src="images/light-anix-full-logo-without-bg.png" loading="lazy" alt="anix-logo"></a></li>
             <li><a href="">QUEM SOMOS</a></li>
             <li><a href="">NOSSAS AULAS</a></li>
             <li><a href="">NOSSA METODOLOGIA</a></li>
@@ -49,16 +49,37 @@
         </ul>
     </nav>
 
-    <nav id="menu-mobile" style="display: none;">
-        <ul>
-            <li><a href=""><img src="images/dark-anix-full-logo-without-bg.png" alt="anix-logo"></a></li>
-            <li><a href="">QUEM SOMOS</a></li>
-            <li><a href="">NOSSAS AULAS</a></li>
-            <li><a href="">NOSSA METODOLOGIA</a></li>
-            <li><a href="">LOCALIZAÇÃO</a></li>
-            <li><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow">CONTATO</a></li>
-        </ul>
+    <nav id="menu-mobile">
+        <div class="logo">
+            <a href="#">
+                <img src="images/light-anix-full-logo-without-bg.png" loading="lazy" alt="anix-log">
+            </a>
+        </div>
+
+        <div class="menu-hamburguer" id="menu-hamburguer">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     </nav>
+
+    <div class="menu-opaque-background">
+        <div class="menu-content">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/light-anix-full-logo-without-bg.png" loading="lazy" alt="anix-log">
+                </a>
+            </div>
+            
+            <ul>
+                <li><a href="">QUEM SOMOS</a></li>
+                <li><a href="">NOSSAS AULAS</a></li>
+                <li><a href="">NOSSA METODOLOGIA</a></li>
+                <li><a href="">LOCALIZAÇÃO</a></li>
+                <li><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow"><span>CONTATO</span></a></li>
+            </ul>
+        </div>
+    </div>
 
     <div class="main-content">
         <section class="presentation-photo">
@@ -85,8 +106,8 @@
                             <div class="slide"><img src="images/carousel/image-6.jpg" loading="lazy" alt="Apresentação Anix Dance Studio"></div>
                         </div>
 
-                        <button class="prev" onclick="changeSlide(-1, true)"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button class="next" onclick="changeSlide(1, true)"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="prev" id="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="next" id="next"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -227,11 +248,6 @@
                         <h1>Unidade Umuarama</h1>
                         <p>Av. Pres. Castelo Branco, 3370 - Sala 08</p>
                     </div>
-
-                    <div class="footer">
-                        <p>Próximo ao centro</p>
-                    </div>
-
                 </div>
             </div>
         </section>

@@ -4,7 +4,7 @@
 
     --foreground: #0b0710;
     --background-deep: #07040c;
-    --background-medium-deep: #06030a;
+    --background-medium-deep: #06030a52;
     --background-soft: #12081a;
 
     --purple-900: #1a0424;
@@ -50,6 +50,7 @@
     --black-60: #00000099;
     --black-50: #00000080;
 
+    --glass: #00000010;
     --glass-dark: rgba(10, 5, 20, 0.65);
     --glass-purple: rgba(133, 12, 126, 0.35);
     --glass-pink: rgba(179, 32, 103, 0.35);
@@ -144,6 +145,14 @@ body{
     flex-direction: column;
     width: 100%;
     background-color: var(--foreground);
+}
+
+#menu-mobile{
+    display: none;
+}
+
+.menu-opaque-background{
+    display: none;
 }
 
 #menu{
@@ -735,14 +744,12 @@ body{
 
 .our-location .content{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     width: 90%;
     margin: auto;
 }
 
 .our-location .content .left-content{
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -751,24 +758,15 @@ body{
 .our-location .content .left-content .left-decoration{
     width: 4px;
     height: 60px;
-    background-color: var(--white);
+    background-color: var(--purple-300);
     border-radius: 4px;
+    margin-bottom: 10px;
 }
 
 .our-location .content .left-content h2{
     font-size: var(--fs-xl);
     margin-bottom: 10px;
-    background: linear-gradient(
-        135deg,
-        var(--pink-500),
-        var(--purple-400)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow:
-        0 0 6px color-mix(in srgb, var(--purple-300) 50%, transparent),
-        0 0 14px color-mix(in srgb, var(--purple-300) 30%, transparent);
+    color: var(--white);
     margin-left: 20px;
 }
 
@@ -778,23 +776,29 @@ body{
 }
 
 .our-location .right-content{
-    width: 50%;
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 20px;
     padding: 30px;
     border-radius: 18px;
-    background-color: var(--foreground);
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid var(--card-border);
+    background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--purple-300) 6%, transparent) 0%,
+        color-mix(in srgb, var(--purple-300) 3%, transparent) 30%,
+        color-mix(in srgb, var(--purple-300) 1.5%, transparent) 55%,
+        var(--background-deep) 100%
+    );
 }
 
-.our-location .right-content .icon{
+.our-location .right-content .icon i{
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 10px;
     background: linear-gradient(
         135deg,
         var(--pink-500),
@@ -806,17 +810,12 @@ body{
 
 .our-location .right-content .location h1{
     color: var(--white);
-    font-size: 18px;
+    font-size: var(--fs-md);
 }
 
 .our-location .right-content .location p{
-    color: rgba(255,255,255,0.7);
-}
-
-.our-location .right-content .footer{
-    margin-left: auto;
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
+    font-size: var(--fs-sm);
+    color: var(--white);
 }
 
 footer{
