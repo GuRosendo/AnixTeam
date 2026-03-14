@@ -1091,3 +1091,14 @@ footer .cnpj .class-informations h1 a:hover{
 footer .cnpj .class-informations h1:first-child{
     padding-right: 10px;
 }
+
+.scroll-animate{
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.scroll-animate.show{
+    opacity: 1;
+    transform: translateY(0);
+}
