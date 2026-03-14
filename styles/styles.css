@@ -155,6 +155,111 @@ body{
     display: none;
 }
 
+.right-bottom-icons{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 11;
+}
+
+.right-bottom-icons i{
+    padding: 20px;
+    border-radius: 50px;
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: var(--fs-md);
+}
+
+.right-bottom-icons i:hover{
+    transform: scale(1.05);
+    box-shadow: var(--glow-purple);
+}
+
+.right-bottom-icons i:last-child{
+    margin-top: 20px;
+}
+
+#cookie-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#cookie-modal .cookie-content{
+    background: var(--background-deep);
+    padding: 35px;
+    border-radius: 16px;
+    max-width: 420px;
+    width: 90%;
+    color: var(--white);
+    box-shadow: var(--shadow-soft);
+}
+
+#cookie-modal .cookie-content h2{
+    margin-bottom: 10px;
+}
+
+#cookie-modal .cookie-content p{
+    font-size: var(--fs-xs);
+    opacity: 0.9;
+}
+
+#cookie-modal .cookie-content #accept-cookies{
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+
+    color: var(--white);
+    transition: 0.3s;
+}
+
+#cookie-modal .cookie-content #accept-cookies:hover{
+    transform: scale(1.04);
+    box-shadow: var(--glow-purple);
+}
+
+#cookie-modal .cookie-content #toggle-cookies{
+    margin-top: 10px;
+    background: none;
+    border: none;
+    color: var(--purple-300);
+    cursor: pointer;
+    font-size: var(--fs-xs);
+}
+
+#cookie-modal .cookie-content .cookie-details{
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s;
+    margin-top: 5px;
+}
+
+#cookie-modal .cookie-content .cookie-details.open{
+    max-height: 200px;
+}
+
 #menu{
     display: flex;
     flex-direction: row;
@@ -281,13 +386,10 @@ body{
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center;
-
     filter: blur(4px) brightness(0.65);
 }
 
@@ -312,10 +414,17 @@ body{
 }
 
 .main-content .presentation-photo .presentation-phrase h1 span{
-    color: var(--purple-300);
+    background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     text-shadow:
-        0 0 4px  color-mix(in srgb, var(--purple-300) 50%, transparent),
-        0 0 10px color-mix(in srgb, var(--purple-300) 30%, transparent);
+        0 0 6px color-mix(in srgb, var(--purple-300) 50%, transparent),
+        0 0 14px color-mix(in srgb, var(--purple-300) 30%, transparent);
 }
 
 .main-content .presentation-photo .presentation-phrase p{
@@ -929,7 +1038,7 @@ footer .menu ul li a{
 }
 
 footer .menu ul li a:hover{
-    color: var(--purple-500);
+    color: var(--purple-300);
 }
 
 footer .menu .contact{
@@ -976,7 +1085,7 @@ footer .cnpj .class-informations h1 a{
 }
 
 footer .cnpj .class-informations h1 a:hover{
-    color: var(--purple-500);
+    color: var(--purple-300);
 }
 
 footer .cnpj .class-informations h1:first-child{

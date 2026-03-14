@@ -34,14 +34,14 @@ function changeSlide(direction, userChanged){
 
     if(actualIndex < 0){
         actualIndex = totalSlides - 1;
-    } else if (actualIndex >= totalSlides){
+    }else if(actualIndex >= totalSlides){
         actualIndex = 0;
     }
 
     updateCarousel();
 }
 
-function updateCarousel() {
+function updateCarousel(){
     const carouselSlides = document.querySelector('.carousel-slides');
     const widthSlide = document.querySelector('.slide').offsetWidth;
 

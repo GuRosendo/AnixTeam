@@ -7,7 +7,7 @@
     <meta name="description" content="Escola de dança K-pop em Umuarama. Aulas para iniciantes e avançados no Anix Dance Studio. Venha fazer sua aula experimental!">
     <meta property="og:title" content="ANIX Dance Studio - Escola de K-pop em Umuarama">
     <meta property="og:description" content="Escola de dança K-pop em Umuarama. Aulas para todas as idades no Anix Dance Studio.">
-    <!-- <meta property="og:image" content="https://seusite.com/images/presentation/presentation.jpg"> -->
+    <meta property="og:image" content="https://anixdancestudio.com/images/presentation/presentation.jpg">
     <meta property="og:type" content="website">
 
     <title>Anix Dance Studio | Escola de K-pop em Umuarama</title>
@@ -24,6 +24,8 @@
     <!-- Script -->
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/carousel.js" defer></script>
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/cookie.js" defer></script>
     <!-- Script -->
 
     <!-- Google Fonts -  -->
@@ -35,16 +37,28 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Font Awesome -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDP5J1FG4X"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-GDP5J1FG4X');
+    </script>
+    <!-- Google tag (gtag.js) -->
 </head>
 
 <body>
     <nav id="menu">
         <ul>
-            <li><a href=""><img id="logo" src="images/light-anix-full-logo-without-bg.png" loading="lazy" alt="anix-logo"></a></li>
-            <li><a href="">QUEM SOMOS</a></li>
-            <li><a href="">NOSSAS AULAS</a></li>
-            <li><a href="">NOSSA METODOLOGIA</a></li>
-            <li><a href="">LOCALIZAÇÃO</a></li>
+            <li><a href="#"><img id="logo" src="images/light-anix-full-logo-without-bg.png" loading="lazy" alt="anix-logo"></a></li>
+            <li><a href="#" data-section="class-descriptions">QUEM SOMOS</a></li>
+            <li><a href="#" data-section="our-methods">NOSSA METODOLOGIA</a></li>
+            <li><a href="#" data-section="our-classes">NOSSAS AULAS</a></li>
+            <li><a href="#" data-section="our-location">LOCALIZAÇÃO</a></li>
             <li><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow" class="btn-contact">CONTATO</a></li>
         </ul>
     </nav>
@@ -72,12 +86,52 @@
             </div>
             
             <ul>
-                <li><a href="">QUEM SOMOS</a></li>
-                <li><a href="">NOSSAS AULAS</a></li>
-                <li><a href="">NOSSA METODOLOGIA</a></li>
-                <li><a href="">LOCALIZAÇÃO</a></li>
+                <li><a href="#" data-section="class-descriptions">QUEM SOMOS</a></li>
+                <li><a href="#" data-section="our-methods">NOSSA METODOLOGIA</a></li>
+                <li><a href="#" data-section="our-classes">NOSSAS AULAS</a></li>
+                <li><a href="#" data-section="our-location">LOCALIZAÇÃO</a></li>
                 <li><a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow"><span>CONTATO</span></a></li>
             </ul>
+        </div>
+    </div>
+
+    <div class="right-bottom-icons">
+        <a href="http://api.whatsapp.com/send?phone=554499701058&text=Olá%2C+gostaria+de+mais+informações+sobre+as+aulas+de+k-pop+do+ANIX+CLASS.+💜" target="OpenContactWindow"><i class="fa-brands fa-whatsapp"></i></a>
+        
+        <i class="fa-solid fa-chevron-up" id="scroll-top"></i>
+    </div>
+
+    <div id="cookie-modal">
+        <div class="cookie-content">
+
+            <h2>Uso de Cookies</h2>
+
+            <p>
+                Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site.
+            </p>
+
+            <div class="cookie-more">
+                <button id="toggle-cookies">Saiba mais</button>
+
+                <div class="cookie-details">
+                    <p>
+                        Utilizamos cookies essenciais para o funcionamento do site e cookies
+                        de análise para entender como os visitantes utilizam nossas páginas.
+                        Essas informações são coletadas de forma anônima e nos ajudam a
+                        melhorar o conteúdo e a navegação.
+                    </p>
+
+                    <p>
+                        Ao continuar navegando ou clicar em "Aceitar", você concorda com
+                        o uso desses cookies.
+                    </p>
+                </div>
+            </div>
+
+            <div class="cookie-buttons">
+                <button id="accept-cookies">Aceitar</button>
+            </div>
+
         </div>
     </div>
 
@@ -93,7 +147,7 @@
             </div>
         </section>
 
-        <section class="class-descriptions">
+        <section class="class-descriptions" id="class-descriptions">
             <div class="left-content">
                 <div class="photo-overlay">
                     <div class="carousel">
@@ -126,7 +180,7 @@
             </div>
         </section>
 
-        <section class="our-methods">
+        <section class="our-methods" id="our-methods">
             <div class="content">
                 <h1>COMO ENSINAMOS</h1>
 
@@ -146,7 +200,7 @@
             </div>
         </section>
 
-        <section class="our-classes">
+        <section class="our-classes" id="our-classes">
             <h1>NOSSAS AULAS</h1>
             <p>As aulas acontecem aos sábados</p>
 
@@ -229,7 +283,7 @@
             <p>Agende sua aula experimental pelo nosso Whatsapp!</p>
         </section>
 
-        <section class="our-location">
+        <section class="our-location" id="our-location">
             <div class="content">
                 <div class="left-content">
                     <div class="left-decoration"></div>
@@ -256,7 +310,7 @@
     <footer>
         <div class="menu">
             <div class="logo">
-                <a href=""><img src="images/logo-no-bg/light-anix-logo-without-bg.png" alt="anix-logo"></a>
+                <a href="#"><img src="images/logo-no-bg/light-anix-logo-without-bg.png" alt="anix-logo"></a>
 
                 <div class="social-medias">
                     <ul>
@@ -285,9 +339,10 @@
                 <h1>MENU</h1>
 
                 <ul>
-                    <li><a href="">QUEM SOMOS</a></li>
-                    <li><a href="">NOSSAS AULAS</a></li>
-                    <li><a href="">LOCALIZAÇÃO</a></li>
+                    <li><a href="#" data-section="class-descriptions">QUEM SOMOS</a></li>
+                    <li><a href="#" data-section="our-methods">NOSSAS METODOLOGIA</a></li>
+                    <li><a href="#" data-section="our-classes">NOSSAS AULAS</a></li>
+                    <li><a href="#" data-section="our-location">LOCALIZAÇÃO</a></li>
                 </ul>
             </nav>
 
@@ -308,9 +363,9 @@
             <div class="class-informations">
                 <h1>© 2026 ANIX CLASS. TODOS OS DIREITOS RESERVADOS.</h1>
 
-                <h1>DESENVOLVIDO POR <a href="https://www.linkedin.com/in/gustavo-rosendo-78025b26a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="Desenvolvedor: Gustavo Rosendo Cardoso">GUSTAVO ROSENDO CARDOSO</a></h1>
-    
                 <h1>CNPJ: 65.293.257/0001-24</h1>
+
+                <h1>DESENVOLVIDO POR <a href="https://www.linkedin.com/in/gustavo-rosendo-78025b26a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" aria-label="Desenvolvedor: Gustavo Rosendo Cardoso">GUSTAVO ROSENDO CARDOSO</a></h1>
             </div>
         </div>
     </footer>

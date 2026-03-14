@@ -240,6 +240,11 @@
 }
 
 @media(max-width: 768px){
+    .right-bottom-icons i{
+        padding: 15px;
+        font-size: var(--fs-sm);
+    }
+
     .main-content .presentation-photo{
         height: 100vh; 
     }
@@ -349,5 +354,10 @@
     footer .cnpj .class-informations h1:first-child{
         padding-right: 0px;
         margin-bottom: 20px;
+    }
+    
+    footer .cnpj .class-informations h1:last-child{
+        padding-right: 0px;
+        margin-top: 20px;
     }
 }
