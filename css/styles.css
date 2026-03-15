@@ -164,6 +164,45 @@ body{
     z-index: 11;
 }
 
+.right-bottom-icons a .circle{
+   text-decoration: none;
+   transition: 0.5s;
+}
+
+.right-bottom-icons a .circle:hover{
+    transform: scale(1.05);
+    box-shadow: var(--glow-purple);
+}
+
+.right-bottom-icons a .circle{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: row;
+   background: linear-gradient(
+        135deg,
+        var(--pink-500),
+        var(--purple-400)
+    );
+    border-radius: 50px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.right-bottom-icons a .circle h1{
+   color: var(--white);
+   font-size: var(--fs-sm);
+   margin-right: 10px;
+}
+
+.right-bottom-icons a .circle i{
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    margin-top: 0 !important;
+    font-size: var(--fs-lg);
+}
+
 .right-bottom-icons i{
     padding: 20px;
     border-radius: 50px;
@@ -176,6 +215,7 @@ body{
     cursor: pointer;
     transition: 0.5s;
     font-size: var(--fs-md);
+    align-self: flex-end;
 }
 
 .right-bottom-icons i:hover{
