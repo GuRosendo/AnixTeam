@@ -922,9 +922,20 @@ body{
     font-size: var(--fs-md);
 }
 
+.our-location .right-content .location a{
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.5s;
+}
+
 .our-location .right-content .location p{
     font-size: var(--fs-sm);
     color: var(--white);
+    transition: 0.5s;
+}
+
+.our-location .right-content .location p:hover{
+    color: var(--purple-300);
 }
 
 footer{
