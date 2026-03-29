@@ -25,7 +25,7 @@ Landing page desenvolvida para uma escola de dança, focada em apresentação in
 ## Demonstração
 
 Acesse o projeto online:
-*(Em breve)*
+https://anixdancestudio.com.br/
 
 ## Autor
 
